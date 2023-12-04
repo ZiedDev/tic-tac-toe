@@ -1,0 +1,225 @@
+:root[data-theme="light"] {
+    --text: #10031c;
+    --background: #faf6fe;
+    --primary: #391178;
+    --secondary: #bd8aff;
+    --accent: #c995db;
+}
+
+:root[data-theme="dark"] {
+    --text: #f0e3fc;
+    --background: #050109;
+    --primary: #ae87ee;
+    --secondary: #330075;
+    --accent: #59246a;
+}
+
+@font-face {
+    font-family: "Mona Sans";
+    src: url("./media/Fonts/Mona Sans/Mona-Sans.ttf");
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: var(--background);
+}
+
+body * {
+    font-family: "Mona Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    color: var(--text);
+}
+
+header {
+    width: calc(100% - 8rem);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem;
+    border-bottom: var(--secondary) 2pt solid;
+}
+
+header>.title {
+    color: var(--text);
+}
+
+header path {
+    fill: var(--text);
+}
+
+.theme-switch-container {
+    z-index: 10;
+    appearance: none;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+}
+
+.theme-switch {
+    cursor: pointer;
+    z-index: 11;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+}
+
+.theme-switch-container svg {
+    z-index: 9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.score {
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    justify-items: center;
+    align-items: center;
+}
+
+.vs-mark {
+    grid-row: 2 span;
+}
+
+.gameBoardGrid {
+    margin: 1rem auto;
+    width: 30rem;
+    height: 30rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: relative;
+}
+
+.grid {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.grid-1 {
+    border-bottom: var(--secondary) 2pt solid;
+    border-right: var(--secondary) 2pt solid;
+}
+
+.grid-2 {
+    border-right: var(--secondary) 2pt solid;
+    border-left: var(--secondary) 2pt solid;
+    border-bottom: var(--secondary) 2pt solid;
+}
+
+.grid-3 {
+    border-bottom: var(--secondary) 2pt solid;
+    border-left: var(--secondary) 2pt solid;
+}
+
+.grid-4 {
+    border-top: var(--secondary) 2pt solid;
+    border-right: var(--secondary) 2pt solid;
+    border-bottom: var(--secondary) 2pt solid;
+}
+
+.grid-5 {
+    border-top: var(--secondary) 2pt solid;
+    border-right: var(--secondary) 2pt solid;
+    border-left: var(--secondary) 2pt solid;
+    border-bottom: var(--secondary) 2pt solid;
+}
+
+.grid-6 {
+    border-top: var(--secondary) 2pt solid;
+    border-left: var(--secondary) 2pt solid;
+    border-bottom: var(--secondary) 2pt solid;
+}
+
+.grid-7 {
+    border-top: var(--secondary) 2pt solid;
+    border-right: var(--secondary) 2pt solid;
+}
+
+.grid-8 {
+    border-right: var(--secondary) 2pt solid;
+    border-left: var(--secondary) 2pt solid;
+    border-top: var(--secondary) 2pt solid;
+}
+
+.grid-9 {
+    border-top: var(--secondary) 2pt solid;
+    border-left: var(--secondary) 2pt solid;
+}
+
+.winner-container {
+    z-index: 20;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 75%);
+
+    display: none;
+    opacity: 0;
+    transition: all 100ms ease-in-out;
+}
+
+.winner {
+    z-index: 21;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    background-color: var(--accent);
+}
+
+.winner-line-container {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.winner-line {
+    position: absolute;
+    top: 0;
+    height: 5pt;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: var(--primary);
+}
+
+.show-winner-menu {
+    display: block;
+    opacity: 1;
+}
+
+.hide {
+    display: none;
+}

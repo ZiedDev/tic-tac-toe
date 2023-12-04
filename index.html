@@ -5,12 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script src="./theme.js" defer></script>
     <script src="./script.js" defer></script>
     <title>Tic Tac Toe</title>
 </head>
 
 <body>
-    <h1>Tic Tac Toe</h1>
+    <header>
+        <h1 class="title">Tic Tac Toe</h1>
+
+        <div class="theme-switch-container">
+            <input type="checkbox" name="theme-switch" class="theme-switch" id="theme-switch">
+            <svg id="sun-icon" class="hide" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                viewBox="0 0 256 256">
+                <path fill="currentColor"
+                    d="M116 32V16a12 12 0 0 1 24 0v16a12 12 0 0 1-24 0Zm80 96a68 68 0 1 1-68-68a68.07 68.07 0 0 1 68 68Zm-24 0a44 44 0 1 0-44 44a44.05 44.05 0 0 0 44-44ZM51.51 68.49a12 12 0 1 0 17-17l-12-12a12 12 0 0 0-17 17Zm0 119l-12 12a12 12 0 0 0 17 17l12-12a12 12 0 1 0-17-17ZM196 72a12 12 0 0 0 8.49-3.51l12-12a12 12 0 0 0-17-17l-12 12A12 12 0 0 0 196 72Zm8.49 115.51a12 12 0 0 0-17 17l12 12a12 12 0 0 0 17-17ZM44 128a12 12 0 0 0-12-12H16a12 12 0 0 0 0 24h16a12 12 0 0 0 12-12Zm84 84a12 12 0 0 0-12 12v16a12 12 0 0 0 24 0v-16a12 12 0 0 0-12-12Zm112-96h-16a12 12 0 0 0 0 24h16a12 12 0 0 0 0-24Z" />
+            </svg>
+            <svg id="moon-icon" class="hide" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                viewBox="0 0 256 256">
+                <path fill="currentColor"
+                    d="M236.37 139.4a12 12 0 0 0-12-3A84.07 84.07 0 0 1 119.6 31.59a12 12 0 0 0-15-15a108.86 108.86 0 0 0-54.91 38.48A108 108 0 0 0 136 228a107.09 107.09 0 0 0 64.93-21.69a108.86 108.86 0 0 0 38.44-54.94a12 12 0 0 0-3-11.97Zm-49.88 47.74A84 84 0 0 1 68.86 69.51a84.93 84.93 0 0 1 23.41-21.22Q92 52.13 92 56a108.12 108.12 0 0 0 108 108q3.87 0 7.71-.27a84.79 84.79 0 0 1-21.22 23.41Z" />
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <div class="score">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                <path fill="currentColor"
+                    d="M208.49 191.51a12 12 0 0 1-17 17L128 145l-63.51 63.49a12 12 0 0 1-17-17L111 128L47.51 64.49a12 12 0 0 1 17-17L128 111l63.51-63.52a12 12 0 0 1 17 17L145 128Z" />
+            </svg>
+            <h1 class="vs-mark">VS</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                <path fill="currentColor"
+                    d="M128 20a108 108 0 1 0 108 108A108.12 108.12 0 0 0 128 20Zm0 192a84 84 0 1 1 84-84a84.09 84.09 0 0 1-84 84Z" />
+            </svg>
+            <h1 id="x-score">0</h1>
+            <h1 id="o-score">0</h1>
+        </div>
+
+        <div class="gameBoardGrid">
+            <div class="grid grid-1" id="grid-1" onclick="game.placeMark(0,0,'grid-1')"></div>
+            <div class="grid grid-2" id="grid-2" onclick="game.placeMark(0,1,'grid-2')"></div>
+            <div class="grid grid-3" id="grid-3" onclick="game.placeMark(0,2,'grid-3')"></div>
+            <div class="grid grid-4" id="grid-4" onclick="game.placeMark(1,0,'grid-4')"></div>
+            <div class="grid grid-5" id="grid-5" onclick="game.placeMark(1,1,'grid-5')"></div>
+            <div class="grid grid-6" id="grid-6" onclick="game.placeMark(1,2,'grid-6')"></div>
+            <div class="grid grid-7" id="grid-7" onclick="game.placeMark(2,0,'grid-7')"></div>
+            <div class="grid grid-8" id="grid-8" onclick="game.placeMark(2,1,'grid-8')"></div>
+            <div class="grid grid-9" id="grid-9" onclick="game.placeMark(2,2,'grid-9')"></div>
+
+            <div class="winner-line-container hide" id="winner-line-container">
+                <div class="winner-line horizontal" id="winner-line"></div>
+            </div>
+        </div>
+
+        <div class="winner-container" id="winner-menu" onclick="game.resetGame()">
+            <div class="winner">
+                <h1 id="winner-text">X Won</h1>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
