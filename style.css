@@ -197,6 +197,10 @@ header path {
     background-color: var(--accent);
 }
 
+.winner>h1 {
+    text-align: center;
+}
+
 .winner-line-container {
     pointer-events: none;
     position: absolute;
@@ -222,4 +226,11 @@ header path {
 
 .hide {
     display: none;
+}
+
+@media only screen and (max-width: 500px) {
+    .gameBoardGrid {
+        width: 20rem;
+        height: 20rem;
+    }
 }
